@@ -10,7 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607023654) do
+ActiveRecord::Schema.define(version: 20170607024229) do
+
+  create_table "connections", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.text     "how_we_met"
+    t.date     "when_we_met"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "current_job"
+    t.date     "birthday"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "latest_interactions", force: :cascade do |t|
+    t.date     "date"
+    t.string   "interaction"
+    t.integer  "connect_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "latest_jobs", force: :cascade do |t|
+    t.string   "job_description"
+    t.date     "date"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "old_interactions", force: :cascade do |t|
+    t.integer  "connect_id"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "old_jobs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

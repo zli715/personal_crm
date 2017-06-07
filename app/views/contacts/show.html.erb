@@ -1,18 +1,21 @@
 <div class="page-header">
-  <h3>Contact #<%= @contact.id %></h3>
+  <h3><%= @contact.first_name %> <%= @contact.last_name %> <a href="/latest_interactions/new" class="btn btn-lg btn-success">Add an Interaction</a></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>First name</dt>
+      <dt>First Name</dt>
       <dd><%= @contact.first_name %></dd>
 
-      <dt>Last name</dt>
+      <dt>Last Name</dt>
       <dd><%= @contact.last_name %></dd>
 
-      <dt>Current job</dt>
+      <dt>Current Job</dt>
       <dd><%= @contact.current_job %></dd>
+      <dd><i><b>Past Jobs</b></i></dd>
+      <dd><i>PLACEHOLDER</i></dd>
+      <dd><i>PLACEHOLDER</i></dd>
 
       <dt>Birthday</dt>
       <dd><%= @contact.birthday %></dd>
@@ -22,6 +25,15 @@
 
       <dt>Phone</dt>
       <dd><%= @contact.phone %></dd>
+
+    </dl>
+
+    <dl class="dl-horizontal">
+      <dt>Latest Interaction</dt>
+      <dd>PLACEHOLDER</dd>
+
+      <dt>Past Interactions</dt>
+      <dd>PLACEHOLDER</dd>
 
     </dl>
 
