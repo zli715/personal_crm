@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @connection.errors.any? %>
+  <% @connection.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Connection #<%= @connection.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_connection/<%= @connection.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @connection.user_id %>">
+      </div>
+
+      <!-- Label and input for contact_id -->
+      <div class="form-group">
+        <label for="contact_id" class="control-label">
+          Contact
+        </label>
+
+        <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @connection.contact_id %>">
+      </div>
+
+      <!-- Label and input for how_we_met -->
+      <div class="form-group">
+        <label for="how_we_met" class="control-label">
+          How we met
+        </label>
+
+        <textarea id="how_we_met" name="how_we_met" placeholder="How we met" class="form-control" rows="3"><%= @connection.how_we_met %></textarea>
+      </div>
+
+      <!-- Label and input for when_we_met -->
+      <div class="form-group">
+        <label for="when_we_met" class="control-label">
+          When we met
+        </label>
+
+        <input type="text" id="when_we_met" name="when_we_met" placeholder="When we met" class="form-control" value="<%= @connection.when_we_met %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Connection
+      </button>
+      or
+      <a href="/connections/<%= @connection.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

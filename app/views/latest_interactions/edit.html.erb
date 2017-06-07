@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @latest_interaction.errors.any? %>
+  <% @latest_interaction.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Latest Interaction #<%= @latest_interaction.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_latest_interaction/<%= @latest_interaction.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @latest_interaction.date %>">
+      </div>
+
+      <!-- Label and input for interaction -->
+      <div class="form-group">
+        <label for="interaction" class="control-label">
+          Interaction
+        </label>
+
+        <input type="text" id="interaction" name="interaction" placeholder="Interaction" class="form-control" value="<%= @latest_interaction.interaction %>">
+      </div>
+
+      <!-- Label and input for connect_id -->
+      <div class="form-group">
+        <label for="connect_id" class="control-label">
+          Connect
+        </label>
+
+        <input type="text" id="connect_id" name="connect_id" placeholder="Connect" class="form-control" value="<%= @latest_interaction.connect_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Latest Interaction
+      </button>
+      or
+      <a href="/latest_interactions/<%= @latest_interaction.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

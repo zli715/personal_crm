@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Latest Job #<%= @latest_job.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Job description</dt>
+      <dd><%= @latest_job.job_description %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @latest_job.date %></dd>
+
+      <dt>User</dt>
+      <dd><%= @latest_job.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/latest_jobs" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/latest_jobs/<%= @latest_job.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_latest_job/<%= @latest_job.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

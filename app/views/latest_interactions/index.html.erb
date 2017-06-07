@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Latest interactions
+    <a href="/latest_interactions/new" class="btn btn-lg btn-success">New Latest interaction</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Date</th>
+        <th>Interaction</th>
+        <th>Connect</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @latest_interactions.each do |latest_interaction| %>
+      <tr>
+        <td><%= latest_interaction.date %></td>
+        <td><%= latest_interaction.interaction %></td>
+        <td><%= latest_interaction.connect_id %></td>
+        <td>
+          <a href="/latest_interactions/<%= latest_interaction.id %>" class="btn btn-primary">Show</a>
+          <a href="/latest_interactions/<%= latest_interaction.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_latest_interaction/<%= latest_interaction.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
