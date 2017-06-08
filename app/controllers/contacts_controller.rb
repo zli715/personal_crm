@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-
+    @our_connection = @contact.connections.find_by(user_id: current_user).id
     render("contacts/show.html.erb")
   end
 

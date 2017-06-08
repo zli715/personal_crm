@@ -9,7 +9,6 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
         <th>Contact</th>
         <th>How we met</th>
         <th>When we met</th>
@@ -18,8 +17,7 @@
 
       <% @connections.each do |connection| %>
       <tr>
-        <td><%= connection.user_id %></td>
-        <td><%= connection.contact_id %></td>
+        <td><%= connection.contact.first_name %> <%= connection.contact.last_name %></td>
         <td><%= connection.how_we_met %></td>
         <td><%= connection.when_we_met %></td>
         <td>

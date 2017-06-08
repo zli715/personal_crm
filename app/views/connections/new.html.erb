@@ -18,22 +18,19 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
+      <!-- Prepopulate with current user_id -->
+        <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @connection.user_id %>">
-      </div>
-
-      <!-- Label and input for contact_id -->
+      <!-- Drop down for contact_id -->
       <div class="form-group">
         <label for="contact_id" class="control-label">
           Contact
         </label>
 
-        <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @connection.contact_id %>">
+        <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :first_name, @connection.contact_id), :class => "form-control") %>
+
+        or
+        <a href="/contacts/new">Add a new contact</a>
       </div>
 
       <!-- Label and input for how_we_met -->

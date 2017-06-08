@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Latest Interaction #<%= @latest_interaction.id %></h3>
+  <h3>Latest Interaction with <%= @latest_interaction.connect.contact.first_name %> <%= @latest_interaction.connect.contact.last_name %></h3>
 </div>
 
 <div class="row">
@@ -10,9 +10,6 @@
 
       <dt>Interaction</dt>
       <dd><%= @latest_interaction.interaction %></dd>
-
-      <dt>Connect</dt>
-      <dd><%= @latest_interaction.connect_id %></dd>
 
     </dl>
 

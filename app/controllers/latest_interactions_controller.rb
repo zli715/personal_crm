@@ -18,6 +18,9 @@ class LatestInteractionsController < ApplicationController
   end
 
   def create
+    @old_interactions = OldInteraction.new
+    @old_interactions = @latest_interaction
+
     @latest_interaction = LatestInteraction.new
 
     @latest_interaction.date = params[:date]

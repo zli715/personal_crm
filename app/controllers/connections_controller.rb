@@ -7,6 +7,13 @@ class ConnectionsController < ApplicationController
 
   def show
     @connection = Connection.find(params[:id])
+    @latest_interaction = LatestInteraction.new
+
+    @latest_interaction.date = params[:date]
+    @latest_interaction.interaction = params[:interaction]
+    @latest_interaction.connect_id = params[:connect_id]
+
+    save_status = @latest_interaction.save
 
     render("connections/show.html.erb")
   end

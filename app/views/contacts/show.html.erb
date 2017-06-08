@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3><%= @contact.first_name %> <%= @contact.last_name %> <a href="/latest_interactions/new" class="btn btn-lg btn-success">Add an Interaction</a></h3>
+  <h3><%= @contact.first_name %> <%= @contact.last_name %> <a href="/connections/<%= @our_connection %>" class="btn btn-lg btn-success">See our connection</a></h3>
 </div>
 
 <div class="row">
@@ -25,15 +25,6 @@
 
       <dt>Phone</dt>
       <dd><%= @contact.phone %></dd>
-
-    </dl>
-
-    <dl class="dl-horizontal">
-      <dt>Latest Interaction</dt>
-      <dd>PLACEHOLDER</dd>
-
-      <dt>Past Interactions</dt>
-      <dd>PLACEHOLDER</dd>
 
     </dl>
 
