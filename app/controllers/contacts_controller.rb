@@ -30,7 +30,7 @@ class ContactsController < ApplicationController
     save_status = @contact.save
 
     if save_status == true
-      redirect_to("/contacts/#{@contact.id}", :notice => "Contact created successfully.")
+      redirect_to("/connections/new", :notice => "Contact created successfully.")
     else
       render("contacts/new.html.erb")
     end

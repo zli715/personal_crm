@@ -1,7 +1,6 @@
 <div class="page-header">
   <h1>
     Latest interactions
-    <a href="/latest_interactions/new" class="btn btn-lg btn-success">New Interaction</a>
   </h1>
 </div>
 
@@ -17,7 +16,7 @@
 
       <% @latest_interactions.each do |latest_interaction| %>
       <tr>
-        <td><%= latest_interaction.connect.contact.first_name %> <%= latest_interaction.connect.contact.last_name %></td>
+        <td><a href="/connections/<%= latest_interaction.connect_id %>"><%= latest_interaction.connect.contact.first_name %> <%= latest_interaction.connect.contact.last_name %></td>
         <td><%= latest_interaction.date %></td>
         <td><%= latest_interaction.interaction %></td>
         <td>

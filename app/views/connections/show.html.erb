@@ -20,49 +20,61 @@
 
       <dl class="dl-horizontal">
         <dt>Latest Interaction</dt>
-        <dd><i><%= @connection.latest_interaction.date %></i>: <%= @connection.latest_interaction.interaction %></dd>
+        <% if @connection.latest_interactions.find_by(connect_id: @connection.id) != nil %>
+        <dd><i><%= @connection.latest_interactions.last.date %></i>: <%= @connection.latest_interactions.last.interaction %></dd>
+        <% else %>
+        <dd></dd>
+        <% end %>
 
-        <dt>Past Interactions</dt>
-        <dd>
-          <% @connection.latest_interaction.each do |old_interaction| %>
-          <tr>
-            <td><i><%= connection.old_interaction.date %></i></td>
-            <td><%= connection.old_interaction.interaction %></td>
-          </tr>
+        <dd><i><b>Past Interactions</b></i></dd>
+        <dd><i>
+          <% if @connection.latest_interactions.find_by(connect_id: @connection.id) != nil %>
+          <dd>
+            <% @connection.latest_interactions.each do |latest_interaction| %>
+            <tr>
+              <td><i><%= latest_interaction.date %></i></td>
+              <td><%= latest_interaction.interaction %></td>
+            </tr>
+            <% end %>
+          </dd>
+          <% else %>
+          <dd></dd>
           <% end %>
-        </dd>
+        </i></dd>
+        <dd><i>PLACEHOLDER</i></dd>
+
       </dl>
 
       <li class="list-group-item">
-            <form action="/create_latest_interaction" method="post">
-              <!-- Hidden input for authenticity token to protect from forgery -->
-              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <form action="/create_latest_interaction" method="post">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-              <!-- Label and input for date -->
-              <div class="form-group">
-                <label for="date" class="control-label">
-                  Date
-                </label>
-                <input type="date" id="date" name="date" placeholder="Date" class="form-control" value="<%= @latest_interaction.date %>">
-              </div>
+          <!-- Label and input for date -->
+          <div class="form-group">
+            <label for="date" class="control-label">
+              Date
+            </label>
+            <input type="date" id="date" name="date" placeholder="Date" class="form-control" value="<%= @latest_interaction.date %>">
+          </div>
 
-              <!-- Label and input for interaction -->
-              <div class="form-group">
-                <label for="year" class="control-label">
-                  Interaction
-                </label>
-                <input type="text" id="interaction" name="interaction" placeholder="Interaction" class="form-control" value="<%= @latest_interaction.interaction %>">
-              </div>
+          <!-- Label and input for interaction -->
+          <div class="form-group">
+            <label for="year" class="control-label">
+              Interaction
+            </label>
+            <input type="text" id="interaction" name="interaction" placeholder="Interaction" class="form-control" value="<%= @latest_interaction.interaction %>">
+          </div>
 
-              <!-- Pre-populate with current contact -->
-              <input type = "hidden" id="connect_id" name="connect_id" value="<%= @connection.id %>">
+          <!-- Pre-populate with current contact -->
+          <input type = "hidden" id="connect_id" name="connect_id" value="<%= @connection.id %>">
 
-              <button class="btn btn-success">
-                Add Interaction
-              </button>
+          <button class="btn btn-success">
+            Add Interaction
+          </button>
 
-            </form>
-          </li>
+        </form>
+      </li>
 
     </dl>
 
