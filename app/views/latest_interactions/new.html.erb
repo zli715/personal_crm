@@ -37,13 +37,8 @@
       </div>
 
       <!-- Prepopulate connect_id -->
-      <div class="form-group">
-        <label for="connect_id" class="control-label">
-          Connection
-        </label>
+      <input type="hidden" id="connect_id" name="connect_id" placeholder="Connect" class="form-control" value="<%= @latest_interaction.connect_id %>">
 
-        <input type="text" id="connect_id" name="connect_id" placeholder="Connect" class="form-control" value="<%= @latest_interaction.connect_id %>">
-      </div>
 
       <button class="btn btn-success">
         Create Latest Interaction
