@@ -15,7 +15,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @connections.each do |connection| %>
+      <% @connections.where(user_id: current_user.id).each do |connection| %>
       <tr>
         <td><%= connection.contact.first_name %> <%= connection.contact.last_name %></td>
         <td><%= connection.how_we_met %></td>
