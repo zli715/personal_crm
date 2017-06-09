@@ -16,6 +16,7 @@
 
       <% @latest_interactions.each do |latest_interaction| %>
       <tr>
+        <% if latest_interaction.connect.user_id == current_user.id %>
         <td><a href="/connections/<%= latest_interaction.connect_id %>"><%= latest_interaction.connect.contact.first_name %> <%= latest_interaction.connect.contact.last_name %></td>
         <td><%= latest_interaction.date %></td>
         <td><%= latest_interaction.interaction %></td>
@@ -24,6 +25,7 @@
           <a href="/latest_interactions/<%= latest_interaction.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_latest_interaction/<%= latest_interaction.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
+        <% end %>
       </tr>
       <% end %>
     </table>

@@ -2,23 +2,6 @@ Rails.application.routes.draw do
 
   root "contacts#index"
 
-  # Routes for the Latest_job resource:
-  # CREATE
-  get "/latest_jobs/new", :controller => "latest_jobs", :action => "new"
-  post "/create_latest_job", :controller => "latest_jobs", :action => "create"
-
-  # READ
-  get "/latest_jobs", :controller => "latest_jobs", :action => "index"
-  get "/latest_jobs/:id", :controller => "latest_jobs", :action => "show"
-
-  # UPDATE
-  get "/latest_jobs/:id/edit", :controller => "latest_jobs", :action => "edit"
-  post "/update_latest_job/:id", :controller => "latest_jobs", :action => "update"
-
-  # DELETE
-  get "/delete_latest_job/:id", :controller => "latest_jobs", :action => "destroy"
-  #------------------------------
-
   # Routes for the Latest_interaction resource:
   # CREATE
   get "/latest_interactions/new", :controller => "latest_interactions", :action => "new"
@@ -34,40 +17,6 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_latest_interaction/:id", :controller => "latest_interactions", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Old_interaction resource:
-  # CREATE
-  get "/old_interactions/new", :controller => "old_interactions", :action => "new"
-  post "/create_old_interaction", :controller => "old_interactions", :action => "create"
-
-  # READ
-  get "/old_interactions", :controller => "old_interactions", :action => "index"
-  get "/old_interactions/:id", :controller => "old_interactions", :action => "show"
-
-  # UPDATE
-  get "/old_interactions/:id/edit", :controller => "old_interactions", :action => "edit"
-  post "/update_old_interaction/:id", :controller => "old_interactions", :action => "update"
-
-  # DELETE
-  get "/delete_old_interaction/:id", :controller => "old_interactions", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Old_job resource:
-  # CREATE
-  get "/old_jobs/new", :controller => "old_jobs", :action => "new"
-  post "/create_old_job", :controller => "old_jobs", :action => "create"
-
-  # READ
-  get "/old_jobs", :controller => "old_jobs", :action => "index"
-  get "/old_jobs/:id", :controller => "old_jobs", :action => "show"
-
-  # UPDATE
-  get "/old_jobs/:id/edit", :controller => "old_jobs", :action => "edit"
-  post "/update_old_job/:id", :controller => "old_jobs", :action => "update"
-
-  # DELETE
-  get "/delete_old_job/:id", :controller => "old_jobs", :action => "destroy"
   #------------------------------
 
   # Routes for the Connection resource:

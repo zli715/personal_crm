@@ -12,9 +12,6 @@
         <th>First name</th>
         <th>Last name</th>
         <th>Current job</th>
-        <th>Birthday</th>
-        <th>Email</th>
-        <th>Phone</th>
         <th>Actions</th>
       </tr>
 
@@ -23,13 +20,13 @@
         <td><%= contact.first_name %></td>
         <td><%= contact.last_name %></td>
         <td><%= contact.current_job %></td>
-        <td><%= contact.birthday %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.phone %></td>
+
         <td>
+          <% if contact.connections.find_by(user_id: current_user) != nil %>
           <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Show</a>
           <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
